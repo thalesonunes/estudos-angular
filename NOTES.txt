@@ -1,0 +1,176 @@
+## ANGULAR
+
+	* componentes
+	* gerenciamento de estado
+	* roteamento
+	* renderização
+
+========================================
+
+## CLI (Command Line Interface)
+
+	O Angular CLI é uma ferramenta open source desenvolvida pelo próprio time do Angular e é utilizado para facilitar a criação de componentes, classes, services e outros.
+
+	O Angular CLI é baseado no Webpack, uma ferramenta que ajuda a processar e agrupar nossos diversos arquivos TypeScript, JavaScript, CSS, HTML e imagens. Por baixo dos panos, o Webpack é responsável por estruturar o ponto de entrada da aplicação, ou seja, a raiz contextual (arquivo de inicialização).
+
+## Instalando CLI
+	npm i -g @angular/cli
+
+## Criando uma nova aplicação
+	ng new minha-app
+	ng new minha-app --minimal
+
+## MUDANÇA INICIAL NO angular.json
+	"inlineTemplate": false,
+	"inlineStyle": false,
+		para que o estilo e html nao fique inline, ou seja... dentro do compomente e sim em arquivos seprados.
+
+## Criando um novo componente
+	ng generate component components/template/header
+	ou 
+	ng g c components/template/header (de forma abreviada)
+
+========================================
+
+JSON SERVER
+
+Instale o json server
+	npm install -g json-server
+
+Crie um db.json com alguns dados
+	{
+	  "posts": [
+	    { "id": 1, "title": "json-server", "author": "typicode" }
+	  ],
+	  "comments": [
+	    { "id": 1, "body": "some comment", "postId": 1 }
+	  ],
+	  "profile": { "name": "typicode" }
+	}
+
+Dê start no JSON Server
+	json-server --watch db.json
+	ou 
+	npm start (caso ja tenha alterado o script no package.json)
+
+========================================
+
+## COMPONENTE ANGULAR
+	
+	1. HTML
+	2. CSS
+	3. TS
+
+## ANOTOMIA DO MÓDULO
+
+	DECLARATIONS
+		1. COMPONENTES
+		2. DIRETIVAS
+		3. PIPES
+
+	EXPORTS
+		1. COMPONENTES
+		2. DIRETIVAS
+		3. PIPES
+
+	IMPORTS
+		1. MODULE A
+		2. MODULE B
+		3. MODULE C
+
+	PROVIDERS
+		1. SERVICE A
+		2. SERVICE B
+		3. SERVICE C
+
+	BOOTSTRAP
+		1. APP COMPONENT (modulo inicial)
+
+========================================
+
+## DIRETIVAS
+
+	ATTRIBUTE (atributo)
+		Alterar a aparência e o comportamento de um elemento, componente ou outra diretiva.
+
+		Exemplo:
+
+			@Directive({
+				selector: '[appRed]'
+			})
+			export class RedDirective {
+				constructor (el: ElementRef){
+					el.nativeElement.style.color = '#e35e6b';
+				}
+			}
+
+			Aplicando a uma tag para mudar a aparrência:
+			<i class="material-icons" appRed> favorite </i>
+
+	STRUCTURAL (estrutural)
+		Altera o layout adicionando e removendo elementos da DOM.
+
+		Exemplo:
+
+			Neste exemplo o elemento só será exibido se ele estiver definido.
+				<form *ngIf="product" class="product-form"></form>
+
+			Neste outro exemplo
+			<ul>
+				<li *ngFor="let product of products">
+					{{ product.name }}
+				</li>
+			</ul>
+
+========================================
+
+## PROPERTY BINDING
+
+	HTML
+		<table [datasource]="products"></table>
+		O dataSource utilizado dentro de colchetes determina que o dado a ser recebido é um array.
+
+	TYPESCRIPT
+		@Component({
+			selector: 'app-product-read',
+			templateUrl: './product-read.component.html',
+			styleUrls: ['./product-read.component.css']
+		})
+		export class ProductReadComponent implements OnInit{
+			products: Product[];
+		}
+
+## EVENT BINDING
+
+	HTML
+		<button mat-raised-button (click)="createProduct()" color="primary">
+			Salvar
+		</button>
+
+	TYPESCRIPT
+		@Component({
+			selector: 'app-product-create',
+			templateUrl: './product-create.component.html',
+			styleUrls: ['./product-create.component.css']
+		})
+		export class ProductCreateComponent implements OnInit {
+			createProduct(): void{
+				// faz alguma coisa
+			}
+		}
+	
+========================================
+
+## ONE WAY DATA BINDING
+
+	<input [value]="nome">
+	nome: string;
+
+		Nesse contexto, os dados só caminham em um sentido, do typescript para o html.
+
+## TWO WAY DATA BINDIND
+
+	<input [(ngModel)]="nome">
+	nome: string;
+
+		Já no contexto de "two way data bindind" a sintexe muda e os dados agora são compartilhados nos dois sentidos, do elemento html para a classe typescript e da classe para o elemento.
