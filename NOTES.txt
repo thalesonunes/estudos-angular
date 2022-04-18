@@ -3,24 +3,24 @@
 	* componentes
 	* gerenciamento de estado
 	* roteamento
-	* renderizaÁ„o
+	* renderiza√ß√£o
 
 ========================================
 
 ## CLI (Command Line Interface)
 
-	O Angular CLI È uma ferramenta open source desenvolvida pelo prÛprio time do Angular e È utilizado para facilitar a criaÁ„o de componentes, classes, services e outros.
+	O Angular CLI √© uma ferramenta open source desenvolvida pelo pr√≥prio time do Angular e √© utilizado para facilitar a cria√ß√£o de componentes, classes, services e outros.
 
-	O Angular CLI È baseado no Webpack, uma ferramenta que ajuda a processar e agrupar nossos diversos arquivos TypeScript, JavaScript, CSS, HTML e imagens. Por baixo dos panos, o Webpack È respons·vel por estruturar o ponto de entrada da aplicaÁ„o, ou seja, a raiz contextual (arquivo de inicializaÁ„o).
+	O Angular CLI √© baseado no Webpack, uma ferramenta que ajuda a processar e agrupar nossos diversos arquivos TypeScript, JavaScript, CSS, HTML e imagens. Por baixo dos panos, o Webpack √© respons√°vel por estruturar o ponto de entrada da aplica√ß√£o, ou seja, a raiz contextual (arquivo de inicializa√ß√£o).
 
 ## Instalando CLI
 	npm i -g @angular/cli
 
-## Criando uma nova aplicaÁ„o
+## Criando uma nova aplica√ß√£o
 	ng new minha-app
 	ng new minha-app --minimal
 
-## MUDAN«A INICIAL NO angular.json
+## MUDAN√áA INICIAL NO angular.json
 	"inlineTemplate": false,
 	"inlineStyle": false,
 		para que o estilo e html nao fique inline, ou seja... dentro do compomente e sim em arquivos seprados.
@@ -48,7 +48,7 @@ Crie um db.json com alguns dados
 	  "profile": { "name": "typicode" }
 	}
 
-DÍ start no JSON Server
+D√™ start no JSON Server
 	json-server --watch db.json
 	ou 
 	npm start (caso ja tenha alterado o script no package.json)
@@ -61,7 +61,7 @@ DÍ start no JSON Server
 	2. CSS
 	3. TS
 
-## ANOTOMIA DO M”DULO
+## ANOTOMIA DO M√ìDULO
 
 	DECLARATIONS
 		1. COMPONENTES
@@ -91,7 +91,7 @@ DÍ start no JSON Server
 ## DIRETIVAS
 
 	ATTRIBUTE (atributo)
-		Alterar a aparÍncia e o comportamento de um elemento, componente ou outra diretiva.
+		Alterar a apar√™ncia e o comportamento de um elemento, componente ou outra diretiva.
 
 		Exemplo:
 
@@ -104,7 +104,7 @@ DÍ start no JSON Server
 				}
 			}
 
-			Aplicando a uma tag para mudar a aparrÍncia:
+			Aplicando a uma tag para mudar a aparr√™ncia:
 			<i class="material-icons" appRed> favorite </i>
 
 	STRUCTURAL (estrutural)
@@ -112,7 +112,7 @@ DÍ start no JSON Server
 
 		Exemplo:
 
-			Neste exemplo o elemento sÛ ser· exibido se ele estiver definido.
+			Neste exemplo o elemento s√≥ ser√° exibido se ele estiver definido.
 				<form *ngIf="product" class="product-form"></form>
 
 			Neste outro exemplo
@@ -128,7 +128,7 @@ DÍ start no JSON Server
 
 	HTML
 		<table [datasource]="products"></table>
-		O dataSource utilizado dentro de colchetes determina que o dado a ser recebido È um array.
+		O dataSource utilizado dentro de colchetes determina que o dado a ser recebido √© um array.
 
 	TYPESCRIPT
 		@Component({
@@ -142,7 +142,7 @@ DÍ start no JSON Server
 
 ## EVENT BINDING
 
-	O evento È instanciado entre parÍnteses e chama a funÁ„o desejada.
+	O evento √© instanciado entre par√™nteses e chama a fun√ß√£o desejada.
 
 	HTML
 		<button mat-raised-button (click)="createProduct()" color="primary">
@@ -168,14 +168,14 @@ DÍ start no JSON Server
 	<input [value]="nome">
 	nome: string;
 
-		Nesse contexto, os dados sÛ caminham em um sentido, do typescript para o html. Note o uso apenas de colchetes e da palavra value.
+		Nesse contexto, os dados s√≥ caminham em um sentido, do typescript para o html. Note o uso apenas de colchetes e da palavra value.
 
 ## TWO WAY DATA BINDIND
 
 	<input [(ngModel)]="nome">
 	nome: string;
 
-		J· no contexto de "two way data bindind" a sintaxe muda e os dados agora s„o compartilhados nos dois sentidos, do elemento html para a classe typescript e da classe para o elemento. Note o uso de colchetes, parÍnteses e da palavra ngModel.
+		J√° no contexto de "two way data bindind" a sintaxe muda e os dados agora s√£o compartilhados nos dois sentidos, do elemento html para a classe typescript e da classe para o elemento. Note o uso de colchetes, par√™nteses e da palavra ngModel.
 
 
 ========================================
@@ -188,7 +188,7 @@ DÍ start no JSON Server
 
 ## PIPES
 
-	O conceito de um Pipe no Angular È muito simples. Ele È composto por uma funÁ„o a ser utilizada no template HTML. Esta funÁ„o aceita valores de entrada e retorna um valor transformado. Um exemplo cl·ssico e muito ˙til È o DatePipe para a formataÁ„o de datas.
+	O conceito de um Pipe no Angular √© muito simples. Ele √© composto por uma fun√ß√£o a ser utilizada no template HTML. Esta fun√ß√£o aceita valores de entrada e retorna um valor transformado. Um exemplo cl√°ssico e muito √∫til √© o DatePipe para a formata√ß√£o de datas.
 
 	Exemplo:
 
@@ -200,17 +200,17 @@ DÍ start no JSON Server
 		  birthday = new Date(1994, 3, 26); // April 26, 1994
 		}
 
-	Apesar da simplicidade, o Pipe pode ser uma peÁa chave para muitas aplicaÁıes. Com ele temos uma maior reutilizaÁ„o de cÛdigo, ganhos de performance e uma maior legibilidade j· que n„o precisamos ìsujarî o TypeScript dos nossos componentes.
+	Apesar da simplicidade, o Pipe pode ser uma pe√ßa chave para muitas aplica√ß√µes. Com ele temos uma maior reutiliza√ß√£o de c√≥digo, ganhos de performance e uma maior legibilidade j√° que n√£o precisamos ‚Äúsujar‚Äù o TypeScript dos nossos componentes.
 
-	A sintaxe usada È de double mustache (dois colchtes) para interpolar seu conteudo. No exemplo acima: 
+	A sintaxe usada √© de double mustache (dois colchtes) para interpolar seu conteudo. No exemplo acima: 
 
 		{{ birthday | date }} 
 
-	Pipes podem receber par‚metros:
+	Pipes podem receber par√¢metros:
 
 		Exemplo:
 
-			<p>O produto custar·  
+			<p>O produto custar√°  
 				{{ produto.price | currency: 'BRL' }}
 			</p>
 
@@ -219,7 +219,7 @@ DÍ start no JSON Server
 
 		Exemplo:
 
-			<p>O vencimento È  
+			<p>O vencimento √©  
 				{{ produto.vencimento | date: 'fullDate' | uppercase }}
 			</p>
 
@@ -230,41 +230,41 @@ DÍ start no JSON Server
 
 	Subject & Observer
 
-	O padr„o de projeto Observer È respons·vel por observar e notificar a mudanÁa de estado entre objetos distintos atravÈs de uma dependÍncia um-para-muitos.
+	O padr√£o de projeto Observer √© respons√°vel por observar e notificar a mudan√ßa de estado entre objetos distintos atrav√©s de uma depend√™ncia um-para-muitos.
 
-	O Observer pode ser usado quando existe no projeto a necessidade de fazer com que um conjunto de objetos seja notificado e atualizado automaticamente apÛs um determinado evento no sistema.
+	O Observer pode ser usado quando existe no projeto a necessidade de fazer com que um conjunto de objetos seja notificado e atualizado automaticamente ap√≥s um determinado evento no sistema.
 
-	… a base da programaÁ„o reativa. Quando um evento acontece "alguÈm" È notificado da mudanÁa para que alguam outra coisa acontece, ou seja, reagindo ao evento.
+	√â a base da programa√ß√£o reativa. Quando um evento acontece "algu√©m" √© notificado da mudan√ßa para que alguam outra coisa acontece, ou seja, reagindo ao evento.
 
 
 ========================================
 
 ## SERVICES
 
-	S„o classes que tem como principal objetivo ORGANIZAR e COPARTILHAR mÈtodos e dados entre componentes.
+	S√£o classes que tem como principal objetivo ORGANIZAR e COPARTILHAR m√©todos e dados entre componentes.
 
-	… importante agrupar em um service apenas lÛgicas que tem coerÍncia de estarem juntas, do contr·rio, È preciso que seja criado um novo service para "abrigar" essa lÛgica fora do contexto.
+	√â importante agrupar em um service apenas l√≥gicas que tem coer√™ncia de estarem juntas, do contr√°rio, √© preciso que seja criado um novo service para "abrigar" essa l√≥gica fora do contexto.
 
-	Exemplo de criaÁ„o de um service:
+	Exemplo de cria√ß√£o de um service:
 
 		ng g s services/product
 
 		@Injectable({
-			providedIn: "root", // root È um alias para AppModule
+			providedIn: "root", // root √© um alias para AppModule
 		})
 		export class ProductService{
 			// ...
 		}
 
-	No providedIn È possÌvel fazer referÍncia para um mÛdulo, nesse caso È preciso importar o modulo e referenci·-lo sem o uso de aspas.
+	No providedIn √© poss√≠vel fazer refer√™ncia para um m√≥dulo, nesse caso √© preciso importar o modulo e referenci√°-lo sem o uso de aspas.
 
-	Services s„o "singletons" dentro do escopo de um injector.
+	Services s√£o "singletons" dentro do escopo de um injector.
 
 ========================================
 
-## INJE«√O DE DEPEND NCIA
+## INJE√á√ÉO DE DEPEND√äNCIA
 
-	… um padr„o no qual a classe recebe as depedÍncias de uma fonte externa ao invÈs de criar por conta prÛpria.
+	√â um padr√£o no qual a classe recebe as deped√™ncias de uma fonte externa ao inv√©s de criar por conta pr√≥pria.
 
 		ModuleInjector
 			@NgModule
