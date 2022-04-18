@@ -142,6 +142,8 @@ Dê start no JSON Server
 
 ## EVENT BINDING
 
+	O evento é instanciado entre parênteses e chama a função desejada.
+
 	HTML
 		<button mat-raised-button (click)="createProduct()" color="primary">
 			Salvar
@@ -166,11 +168,109 @@ Dê start no JSON Server
 	<input [value]="nome">
 	nome: string;
 
-		Nesse contexto, os dados só caminham em um sentido, do typescript para o html.
+		Nesse contexto, os dados só caminham em um sentido, do typescript para o html. Note o uso apenas de colchetes e da palavra value.
 
 ## TWO WAY DATA BINDIND
 
 	<input [(ngModel)]="nome">
 	nome: string;
 
-		Já no contexto de "two way data bindind" a sintexe muda e os dados agora são compartilhados nos dois sentidos, do elemento html para a classe typescript e da classe para o elemento.
+		Já no contexto de "two way data bindind" a sintaxe muda e os dados agora são compartilhados nos dois sentidos, do elemento html para a classe typescript e da classe para o elemento. Note o uso de colchetes, parênteses e da palavra ngModel.
+
+
+========================================
+
+## ROUTER (rotas)
+
+	Router Outlet
+
+========================================
+
+## PIPES
+
+	O conceito de um Pipe no Angular é muito simples. Ele é composto por uma função a ser utilizada no template HTML. Esta função aceita valores de entrada e retorna um valor transformado. Um exemplo clássico e muito útil é o DatePipe para a formatação de datas.
+
+	Exemplo:
+
+		@Component({
+		  selector: 'app-birthday',
+		  template: `<p>My birthday is {{ birthday | date }}</p>`
+		})
+		export class HeroBirthdayComponent {
+		  birthday = new Date(1994, 3, 26); // April 26, 1994
+		}
+
+	Apesar da simplicidade, o Pipe pode ser uma peça chave para muitas aplicações. Com ele temos uma maior reutilização de código, ganhos de performance e uma maior legibilidade já que não precisamos “sujar” o TypeScript dos nossos componentes.
+
+	A sintaxe usada é de double mustache (dois colchtes) para interpolar seu conteudo. No exemplo acima: 
+
+		{{ birthday | date }} 
+
+	Pipes podem receber parâmetros:
+
+		Exemplo:
+
+			<p>O produto custará  
+				{{ produto.price | currency: 'BRL' }}
+			</p>
+
+
+	Por fim, os pipes podem ser encadeados.
+
+		Exemplo:
+
+			<p>O vencimento é  
+				{{ produto.vencimento | date: 'fullDate' | uppercase }}
+			</p>
+
+
+========================================
+
+## OBSERVABLES
+
+	Subject & Observer
+
+	O padrão de projeto Observer é responsável por observar e notificar a mudança de estado entre objetos distintos através de uma dependência um-para-muitos.
+
+	O Observer pode ser usado quando existe no projeto a necessidade de fazer com que um conjunto de objetos seja notificado e atualizado automaticamente após um determinado evento no sistema.
+
+	É a base da programação reativa. Quando um evento acontece "alguém" é notificado da mudança para que alguam outra coisa acontece, ou seja, reagindo ao evento.
+
+
+========================================
+
+## SERVICES
+
+	São classes que tem como principal objetivo ORGANIZAR e COPARTILHAR métodos e dados entre componentes.
+
+	É importante agrupar em um service apenas lógicas que tem coerência de estarem juntas, do contrário, é preciso que seja criado um novo service para "abrigar" essa lógica fora do contexto.
+
+	Exemplo de criação de um service:
+
+		ng g s services/product
+
+		@Injectable({
+			providedIn: "root", // root é um alias para AppModule
+		})
+		export class ProductService{
+			// ...
+		}
+
+	No providedIn é possível fazer referência para um módulo, nesse caso é preciso importar o modulo e referenciá-lo sem o uso de aspas.
+
+	Services são "singletons" dentro do escopo de um injector.
+
+========================================
+
+## INJEÇÃO DE DEPENDÊNCIA
+
+	É um padrão no qual a classe recebe as depedências de uma fonte externa ao invés de criar por conta própria.
+
+		ModuleInjector
+			@NgModule
+			@Injectable
+
+		ElementInjector
+			@Directive
+			@Component
+
